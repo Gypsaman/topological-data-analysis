@@ -28,7 +28,8 @@ topological_data_analysis/
     ├── 03_algorithms_and_software.md ← Algorithms and tools
     ├── 04_applications.md       ← Applications across domains
     ├── 05_research_frontiers.md ← Open problems and emerging directions
-    └── 06_bibliography.md       ← Complete bibliography (76 entries)
+    ├── 06_bibliography.md       ← Complete bibliography (76 entries)
+    └── 07_research_directions.md← Candidate research topics (low-resource, math-focused)
 ```
 
 ---
