@@ -11,7 +11,7 @@ This file provides context for AI-assisted research sessions on Topological Data
 2. Explore research ideas and application directions
 3. Develop and write a research paper
 
-**Current stage:** Foundation complete. Literature survey complete (76 references). Ready for research direction exploration.
+**Current stage:** Foundation complete. Literature survey complete (76 references). Seven candidate research directions identified in `07_research_directions.md`. Ready to select a direction and develop a proposal.
 
 ---
 
@@ -27,7 +27,8 @@ topological_data_analysis/
     ├── 03_algorithms_and_software.md ← Algorithms (Ripser, GUDHI, Mapper, etc.)
     ├── 04_applications.md            ← Applications (biology, physics, ML, etc.)
     ├── 05_research_frontiers.md      ← Open problems and research opportunities
-    └── 06_bibliography.md            ← 76-entry annotated bibliography
+    ├── 06_bibliography.md            ← 76-entry annotated bibliography
+    └── 07_research_directions.md     ← 7 candidate research topics (low-resource, math-focused)
 ```
 
 ---
@@ -101,17 +102,21 @@ topological_data_analysis/
 
 ---
 
-## Research Paper Ideas (To Explore)
+## Research Paper Ideas
 
-These are candidate directions identified during the literature survey. Not yet evaluated for feasibility or novelty:
+Seven candidate directions are fully documented in [`research/07_research_directions.md`](research/07_research_directions.md), each with: open gap, proposed contribution, compute requirements, and key references. All designed for minimal compute and strong mathematical focus.
 
-1. **TDA for transformer interpretability** — Use PH/zigzag on activation spaces across layers; detect representational phase transitions; topology-guided pruning
-2. **Multiparameter PH for genomics** — Two-parameter filtrations (scale + density) on scRNA-seq data; compare with current single-parameter methods
-3. **Topological analysis of LLM reasoning** — PH on chain-of-thought traces; detect when reasoning is topologically consistent vs. fragmented
-4. **Magnitude homology + persistence unification** — Theoretical: find common framework connecting the two invariants
-5. **Sheaf-theoretic TDA for heterogeneous data** — Cellular sheaves on mixed-type data (numerical + categorical + graph)
-6. **TDA for materials inverse design** — Use topological optimization (Oineus-style) to design amorphous materials with target thermal/mechanical properties
-7. **Statistical TDA for cosmological inference** — Use TDA features of galaxy surveys to constrain cosmological parameters beyond power spectrum
+| # | Direction | Core Math | Compute |
+|---|-----------|-----------|---------|
+| 1 | Magnitude vs. Persistence correspondence | Category theory, homological algebra | Laptop / pen & paper |
+| 2 | Fréchet mean uniqueness in restricted diagram spaces | Functional analysis, Morse theory | Laptop |
+| 3 | PH of Cayley complexes | Geometric group theory | GAP/SageMath + GUDHI |
+| 4 | Stability under graph coarsening | Spectral graph theory | Laptop |
+| 5 | Extended persistence and Reeb graphs on surfaces | Morse theory, surface topology | GUDHI on laptop |
+| 6 | Concentration inequalities for random complexes | Probability, combinatorics | Very low |
+| 7 | Discrete Morse sub-optimality and persistence | Discrete Morse theory | Laptop |
+
+**Top recommendations:** Direction 6 (clearest open problem) or Direction 4 (ML-relevant, broadest audience).
 
 ---
 
@@ -120,10 +125,10 @@ These are candidate directions identified during the literature survey. Not yet 
 - When revisiting this project, start by reading this file + README.md
 - All new research findings should be added to the relevant `research/*.md` file
 - New bibliography entries: add to `research/06_bibliography.md` with a sequential number
-- When a research direction is chosen, create `research/07_research_proposal.md`
+- When a research direction is chosen, create `research/08_research_proposal.md`
 - When writing the paper, create `research/paper/` directory with draft sections
 - Keep this CLAUDE.md updated as the project advances
 
 ---
 
-*Last updated: 2026-03-18*
+*Last updated: 2026-03-18 — Added 07_research_directions.md*

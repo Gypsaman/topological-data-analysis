@@ -125,6 +125,23 @@ Current open problems and high-impact research directions:
 
 ---
 
+### [07 — Candidate Research Directions](research/07_research_directions.md)
+Seven research directions curated for a two-person team with strong mathematical backgrounds and minimal compute/budget:
+
+| # | Direction | Core Math |
+|---|-----------|-----------|
+| 1 | Magnitude vs. Persistence correspondence | Category theory, homological algebra |
+| 2 | Fréchet mean uniqueness in restricted diagram spaces | Functional analysis, Morse theory |
+| 3 | PH of Cayley complexes | Geometric group theory |
+| 4 | Stability under graph coarsening | Spectral graph theory |
+| 5 | Extended persistence and Reeb graphs on surfaces | Morse theory, surface topology |
+| 6 | Concentration inequalities for random complexes | Probability, combinatorics |
+| 7 | Discrete Morse sub-optimality and persistence | Discrete Morse theory |
+
+Each entry includes: the open gap, proposed contribution, compute requirements, and key references.
+
+---
+
 ## Key Researchers
 
 | Researcher | Affiliation | Key work |
@@ -163,7 +180,7 @@ Current open problems and high-impact research directions:
 2. **Explore** research ideas and application directions
 3. **Develop** a research paper in TDA or TDA applications
 
-Current stage: Foundation building and literature survey complete. Next: identify specific research direction and develop novel contributions.
+Current stage: Foundation complete. Literature survey complete (76 references). Candidate research directions identified. Next: select a direction and develop research proposal.
 
 ---
 
