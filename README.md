@@ -29,7 +29,9 @@ topological_data_analysis/
     ├── 04_applications.md       ← Applications across domains
     ├── 05_research_frontiers.md ← Open problems and emerging directions
     ├── 06_bibliography.md       ← Complete bibliography (76 entries)
-    └── 07_research_directions.md← Candidate research topics (low-resource, math-focused)
+    ├── 07_research_directions.md← Candidate research topics (low-resource, math-focused)
+    ├── 08_research_direction_financial_memory.md ← Direction 8: topological Hurst estimator
+    └── 09_research_direction_unified.md          ← Direction 9: unified theory (6 + 8), leading candidate
 ```
 
 ---
@@ -142,6 +144,16 @@ Each entry includes: the open gap, proposed contribution, compute requirements, 
 
 ---
 
+### [08 — Financial Memory via TDA](research/08_research_direction_financial_memory.md)
+Applies persistent homology of delay-embedded time series to detect long-range memory in financial markets, grounded in Mandelbrot's multifractal framework. Proposes a **topological Hurst estimator** based on the scaling law $\mathbb{E}[L_n(\epsilon)] \sim n \cdot \epsilon^{-\alpha(H)}$.
+
+---
+
+### [09 — Unified Direction: Concentration for Dependent Complexes (Leading Candidate)](research/09_research_direction_unified.md)
+Synthesizes Directions 6 and 8. Extends concentration inequalities for persistent Betti numbers from i.i.d. to mixing, long-range dependent processes. The key result: a concentration bound of the form $\exp(-t^2 / C(H) \cdot n^{2H})$ where the Hurst exponent $H$ appears explicitly — recovering Direction 6 when $H = 1/2$. Gives Direction 8 its statistical foundation. Three target communities: stochastic topology, statistical TDA, mathematical finance.
+
+---
+
 ## Key Researchers
 
 | Researcher | Affiliation | Key work |
@@ -180,7 +192,7 @@ Each entry includes: the open gap, proposed contribution, compute requirements, 
 2. **Explore** research ideas and application directions
 3. **Develop** a research paper in TDA or TDA applications
 
-Current stage: Foundation complete. Literature survey complete (76 references). Candidate research directions identified. Next: select a direction and develop research proposal.
+Current stage: Foundation complete. Literature survey complete (76 references). Nine candidate directions documented. Direction 9 (concentration for dependent complexes + topological Hurst estimator) is the leading candidate. Next: develop full research proposal in `10_research_proposal.md`.
 
 ---
 
