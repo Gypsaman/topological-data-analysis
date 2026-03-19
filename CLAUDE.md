@@ -11,7 +11,7 @@ This file provides context for AI-assisted research sessions on Topological Data
 2. Explore research ideas and application directions
 3. Develop and write a research paper
 
-**Current stage:** Foundation complete. Literature survey complete (76 references). Seven candidate research directions identified in `07_research_directions.md`. Ready to select a direction and develop a proposal.
+**Current stage:** Foundation complete. Literature survey complete (76 references). Nine candidate research directions documented. Direction 9 (unified concentration + financial memory) is the leading candidate — synthesizes Directions 6 and 8 into a single paper with rigorous statistical theory and concrete application.
 
 ---
 
@@ -28,7 +28,9 @@ topological_data_analysis/
     ├── 04_applications.md            ← Applications (biology, physics, ML, etc.)
     ├── 05_research_frontiers.md      ← Open problems and research opportunities
     ├── 06_bibliography.md            ← 76-entry annotated bibliography
-    └── 07_research_directions.md     ← 7 candidate research topics (low-resource, math-focused)
+    ├── 07_research_directions.md     ← 7 candidate research topics (low-resource, math-focused)
+    ├── 08_research_direction_financial_memory.md  ← Direction 8: topological Hurst estimator
+    └── 09_research_direction_unified.md           ← Direction 9: unified theory (6 + 8), leading candidate
 ```
 
 ---
@@ -115,8 +117,10 @@ Seven candidate directions are fully documented in [`research/07_research_direct
 | 5 | Extended persistence and Reeb graphs on surfaces | Morse theory, surface topology | GUDHI on laptop |
 | 6 | Concentration inequalities for random complexes | Probability, combinatorics | Very low |
 | 7 | Discrete Morse sub-optimality and persistence | Discrete Morse theory | Laptop |
+| 8 | Topological memory in financial markets | Stochastic processes, PH of time series | Laptop |
+| 9 | **Concentration for dependent complexes + topological Hurst estimator** | Probability, fBm, PH theory | Laptop |
 
-**Top recommendations:** Direction 6 (clearest open problem) or Direction 4 (ML-relevant, broadest audience).
+**Top recommendation: Direction 9** — unifies Directions 6 and 8. The concentration bound for dependent point clouds is the first of its kind; the topological Hurst estimator is the first TDA estimator for long-memory processes with provable statistical guarantees. Three audiences: stochastic topology, statistical TDA, mathematical finance.
 
 ---
 
