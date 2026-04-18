@@ -1,0 +1,20 @@
+===== Price Forecast =====
+Data through:         2026-04-06
+Last available close: 658.10
+Predicted log return: 0.000638
+Forecasted price:     658.52
+TDA features [entropy, amplitude, point_count]: [ 2.80218235  0.04115446 17.
+
+===== Price Forecast =====
+Data through:         2026-04-06
+Last available close: 658.93
+Predicted log return: 0.001274
+Forecasted price:     659.77
+TDA features [entropy, amplitude, point_count]: [ 2.81210173  0.05048432 17.    
+
+===== Price Forecast =====
+Data through:         2026-04-10
+Last available close: 48046.20
+Predicted log return: -0.001149
+Forecasted price:     47991.02
+TDA features [entropy, amplitude, point_count]: [2.80716954e+00 1.57636628e-02 1.70000000e+01]

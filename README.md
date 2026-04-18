@@ -22,6 +22,8 @@ The main tool is **persistent homology**: a multi-scale summary of topological f
 topological_data_analysis/
 ├── README.md                    ← This file
 ├── CLAUDE.md                    ← Context for AI-assisted research
+├── forecast.py                  ← TDA + N-BEATS financial forecaster (see Usage below)
+├── .env                         ← Credentials (not committed)
 └── research/
     ├── 01_foundations.md        ← Mathematical foundations
     ├── 02_persistent_homology.md← Core theory: persistence, stability
@@ -33,6 +35,98 @@ topological_data_analysis/
     ├── 08_research_direction_financial_memory.md ← Direction 8: topological Hurst estimator
     └── 09_research_direction_unified.md          ← Direction 9: unified theory (6 + 8), leading candidate
 ```
+
+---
+
+## Financial Forecaster (`forecast.py`)
+
+Implements the methodology from *"Enhancing financial time series forecasting through topological data analysis"* (de Jesus Jr., Fernández-Navarro, Carbonero-Ruz, 2025). Combines **Vietoris-Rips persistent homology** on Takens-embedded windows with an **N-BEATS** neural network to produce one-step-ahead price forecasts.
+
+### Setup
+
+```bash
+pip install yfinance tastytrade pyotp pandas numpy matplotlib \
+            scikit-learn ripser torch pywavelets statsmodels python-dotenv
+```
+
+Create a `.env` file in the project root:
+
+```
+TASTYTRADE_LOGIN=your@email.com
+TASTYTRADE_PASSWORD=yourpassword
+TASTYTRADE_TOTP_SECRET=YOUR_BASE32_TOTP_SECRET   # from your 2FA setup
+```
+
+### Usage
+
+**Basic forecast (Dow Jones, no chart):**
+```bash
+python forecast.py
+```
+
+**Forecast a different ticker:**
+```bash
+python forecast.py --ticker SPY
+python forecast.py --ticker QQQ
+```
+
+**Show actual vs predicted chart:**
+```bash
+python forecast.py --ticker SPY --plot
+```
+
+**Fetch live options chain from tastytrade around the forecasted price:**
+```bash
+# ±2% range (default)
+python forecast.py --ticker SPY --options SPY
+
+# Tighter ±1% range
+python forecast.py --ticker SPY --options SPY --width 0.01
+```
+
+**Forecast for a specific past date** (backtesting):
+```bash
+python forecast.py --ticker SPY --forecast 2026-01-15
+```
+
+**All flags together:**
+```bash
+python forecast.py --ticker SPY --options SPY --width 0.02 --plot
+```
+
+### Output
+
+```
+===== Results =====
+Test  MAE:  0.003948
+Test  MAPE: 5.07%
+Test  directional accuracy: 100.00%
+
+===== Price Forecast =====
+Data through:         2026-04-06
+Last available close: 657.09
+Predicted log return: -0.000106
+Forecasted price:     657.02
+
+===== Options Chain: SPY | Target $657.02 ±2% [$644.09 – $670.00] =====
+Expiration: 2026-04-06  (0 DTE)
+
+Type    Strike      Bid      Ask      Mid  Symbol
+-----------------------------------------------------------------
+CALL    655.00     1.94     1.99     1.96  SPY   260406C00655000
+PUT     655.00     0.97     0.95     0.96  SPY   260406P00655000
+...
+```
+
+### How it works
+
+| Step | Method |
+|------|--------|
+| Data | Yahoo Finance daily close, 2015–present |
+| Preprocessing | Log returns → outlier clip → ADF stationarity → MinMaxScaler → MODWT denoise (db2, 5 levels) |
+| TDA features | Takens embedding (k=2, τ=3) → Vietoris-Rips PH → entropy H(D), amplitude A(D), count N(D) |
+| Model | N-BEATS (2 stacks × 4 blocks × 512 units), input window T=7, horizon H=1 |
+| Options data | Tastytrade API via DXLink WebSocket streamer (requires account + TOTP 2FA) |
 
 ---
 
@@ -198,4 +292,6 @@ Current stage: Foundation complete. Literature survey complete (76 references). 
 
 ---
 
-*Last updated: 2026-03-18*
+*Last updated: 2026-04-07*
+
+

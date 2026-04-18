@@ -313,4 +313,81 @@ Based on the current state of the field, the following directions represent high
 
 ---
 
+## 6. Topics from Dey & Wang (CTDA, 2022) Not Covered in Our Notes
+
+*Added 2026-03-20 after reviewing "Computational Topology for Data Analysis" by Tamal Krishna Dey and Yusu Wang (Cambridge University Press, 2022, 375 pp.). This book is the most algorithmically comprehensive TDA reference available. The sections below document topics it covers that are absent or thin in our existing notes. These are potential theoretical targets.*
+
+---
+
+### 6.1 Optimal Homology Generators (Chapter 5)
+
+**What the book covers:** Computing *minimum-weight* homology representatives — the "most efficient" cycle that generates a homology class. Distinct from column reduction, which yields *some* generator, not the optimal one.
+
+The key results:
+- **Greedy algorithm for optimal H_p(K)-basis** (§5.1.1): A greedy algorithm on edge weights finds an optimal basis for H_p in polynomial time under specific conditions.
+- **Optimal H₁-basis and independence check** (§5.1.2): For H₁, minimum spanning tree ideas extend to homology.
+- **Localization via LP** (§5.2): Optimal generators can be computed by linear programming over $\mathbb{Z}$ when the complex is *totally unimodular* — a condition satisfied by surfaces and planar graphs.
+- **Persistent cycles** (§5.3): For PL-functions on pseudomanifolds, the persistent cycle (the specific cycle born at a birth event) can be computed explicitly in $O(n^3)$.
+
+**Why this matters for research:** The minimum-weight representative of a homology class has interpretive value — in network analysis it is the "most efficient loop," in materials science the "tightest ring." No concentration results exist for optimal generators of random complexes. Combining Chapter 5 with probabilistic methods is open.
+
+**Open question from the book:** For 2-pseudomanifolds embedded in $\mathbb{R}^3$, the persistent cycles corresponding to *infinite* bars (essential classes) can be computed efficiently (§5.3.3). Whether this extends to higher dimensions with better than $O(n^3)$ complexity is open.
+
+---
+
+### 6.2 Reeb Graph Distances and the Universality Problem (Chapter 7)
+
+**What the book covers:** Two distances on Reeb graphs with rigorous stability theorems:
+
+- **Interleaving distance** $\mathsf{d}_I(\mathbb{F}, \mathbb{G})$: Defined via $\varepsilon$-smoothings of Reeb graphs (thickened versions); the smallest $\varepsilon$ for which $\varepsilon$-interleaved maps exist. Generalizes persistence module interleaving to the graph setting.
+- **Functional distortion distance** $\mathsf{d}_{FD}(\mathbb{F}, \mathbb{G})$: A function-adapted Gromov–Hausdorff distance using the function-induced metric on each Reeb graph.
+
+**Key theorem (Bi-Lipschitz equivalence, Thm 7.6):** $\mathsf{d}_{FD} \leq 3\mathsf{d}_I \leq 3\mathsf{d}_{FD}$. Both distances are stable: $\mathsf{d}_R((\mathbb{F},f), (\mathbb{G}, g)) \leq \|f - g\|_\infty$.
+
+**Universality (Definition 7.10):** A Reeb graph distance $\mathsf{d}_U$ is *universal* if it is stable and for every other stable distance $\mathsf{d}_S$, we have $\mathsf{d}_S \leq \mathsf{d}_U$. The universal distance exists (via pullback to a common space, Bauer-Landi-Mémoli 2020) but:
+
+> **Open question (stated explicitly in §7.4):** *"It remains an interesting open question whether the interleaving distance (and thus functional distortion distance) is within a constant factor of the universal Reeb graph distance."*
+
+This is a well-posed, hard open problem. A positive answer would unify all stable Reeb graph distances. A counterexample would show the interleaving distance is fundamentally incomplete.
+
+**Computational note:** Computing $\mathsf{d}_I$ between general Reeb graphs is at least as hard as graph isomorphism (NP-hard for merge trees, Agarwal et al. 2018). A fixed-parameter tractable algorithm exists for merge trees.
+
+---
+
+### 6.3 Path Homology for Directed Graphs (Chapter 8)
+
+**What the book covers:** The Grigor'yan-Lin-Muranov-Yau construction assigns homology groups to directed graphs via *allowed paths* — sequences of directed edges that survive the boundary operator. This is fundamentally different from the clique complex / Vietoris–Rips construction, which symmetrizes the graph.
+
+Key points:
+- The **path complex** $\mathcal{P}(G)$ of a digraph $G$ is built from all elementary paths; the **allowed subcomplex** $\Omega_*(G)$ consists of paths whose boundary is also a linear combination of allowed paths.
+- Path homology detects directed cycles (closed directed walks) that have no undirected analogue.
+- **Persistent path homology** is defined by filtration of digraphs by edge weight and has an $O(n^3)$ algorithm (Dey-Li-Wang, SODA 2018).
+- Application: Reimann et al. (2017) found that biological neural networks (connectome data) have vastly more directed cliques than random graphs of similar density — a topological signature of biological organization.
+
+**What the book does NOT prove:** A stability theorem for persistent path homology. The Cohen-Steiner stability result does not transfer directly because small edge-weight perturbations can create or destroy allowed paths. This is the primary open problem for persistent path homology.
+
+**Our notes' gap:** Path homology is absent from [01_foundations.md](01_foundations.md) through [04_applications.md](04_applications.md). It is a fully developed theory with software support in GUDHI, targeting a different class of data (directed networks) than standard TDA.
+
+**See:** [10_research_direction_path_homology.md](10_research_direction_path_homology.md) for the full research direction built on this.
+
+---
+
+### 6.4 Statistical Treatment: The Confirmed Gap (Chapter 13.3)
+
+**What the book covers:** Section 13.3 (3 pages) briefly surveys:
+- Fréchet means/variance in persistence diagram spaces $\mathbb{D}^p_q$ (Turner et al., Mileyko et al.)
+- Concentration and convergence of persistence landscapes under i.i.d. sampling (Chazal et al. refs [85, 86])
+- Confidence sets via bootstrapping [35, 84, 160]
+- Distance-to-measures (DTM) for robustness when the sampling distribution deviates from the target [80]
+
+**What the book explicitly does NOT cover:**
+- Concentration for persistent Betti numbers of random simplicial complexes: *"We will not describe this interesting line of work in this book."* (refs [36, 37, 38, 202–204], the Bobrowski-Kahle program)
+- Any result for **dependent** or **long-range-dependent** samples
+
+**From the preface:** *"there is an emerging sub-area of TDA which centers more around statistical aspects. This book does not deal with these developments."*
+
+This is textbook-level confirmation that the statistical gap addressed by Direction 9 is real, acknowledged, and unsolved as of 2021. The i.i.d. boundary is the frontier of the published literature in the most comprehensive available reference.
+
+---
+
 *Previous: [04_applications.md](04_applications.md) | Next: [06_bibliography.md](06_bibliography.md)*

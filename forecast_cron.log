@@ -1,0 +1,141 @@
+Device: cuda
+Downloading ^DJI data...
+
+Preprocessing (paper Section 3.2)...
+  [1/5] Cubic spline interpolation for missing values...
+  [2/5] Computing log returns...
+  [3/5] Outlier clipping at [0.02, 0.98] quantile bounds...
+  [4/5] ADF stationarity test...
+ADF test p-value: 0.0000 → series is stationary
+  [5/5] MODWT denoising (db2, 5 levels) + MinMaxScaler to [-1, 1]...
+
+Preprocessed series: 2837 samples
+
+Building sliding-window TDA dataset...
+Samples: 2816
+Signal feature shape: (2816, 7)  (T=7)
+TDA feature shape:    (2816, 3)     (L=21, tau=3, k=2)
+
+Training N-BEATS+TDA model (paper Section 3.4 hyperparameters)...
+Epoch 001 | train_loss=0.094959 | val_loss=0.004539
+Epoch 002 | train_loss=0.013177 | val_loss=0.002264
+Epoch 003 | train_loss=0.002457 | val_loss=0.001186
+Epoch 004 | train_loss=0.001670 | val_loss=0.001138
+Epoch 005 | train_loss=0.001331 | val_loss=0.001035
+Epoch 006 | train_loss=0.001186 | val_loss=0.000508
+Epoch 007 | train_loss=0.001215 | val_loss=0.001809
+Epoch 008 | train_loss=0.001931 | val_loss=0.000664
+Epoch 009 | train_loss=0.000827 | val_loss=0.000372
+Epoch 010 | train_loss=0.000760 | val_loss=0.001043
+Epoch 011 | train_loss=0.000777 | val_loss=0.000520
+Epoch 012 | train_loss=0.002015 | val_loss=0.000740
+Epoch 013 | train_loss=0.000752 | val_loss=0.000408
+Epoch 014 | train_loss=0.000680 | val_loss=0.000521
+Epoch 015 | train_loss=0.000631 | val_loss=0.000308
+Epoch 016 | train_loss=0.000557 | val_loss=0.000256
+Epoch 017 | train_loss=0.000594 | val_loss=0.000492
+Epoch 018 | train_loss=0.000614 | val_loss=0.000295
+Epoch 019 | train_loss=0.000454 | val_loss=0.000171
+Epoch 020 | train_loss=0.000404 | val_loss=0.000394
+Epoch 021 | train_loss=0.000562 | val_loss=0.000234
+Epoch 022 | train_loss=0.000645 | val_loss=0.000223
+Epoch 023 | train_loss=0.000589 | val_loss=0.000535
+Epoch 024 | train_loss=0.000587 | val_loss=0.000135
+Epoch 025 | train_loss=0.000735 | val_loss=0.000409
+Epoch 026 | train_loss=0.000551 | val_loss=0.000213
+Epoch 027 | train_loss=0.000538 | val_loss=0.000350
+Epoch 028 | train_loss=0.000579 | val_loss=0.000255
+Epoch 029 | train_loss=0.000770 | val_loss=0.000481
+Epoch 030 | train_loss=0.000422 | val_loss=0.000278
+Epoch 031 | train_loss=0.000676 | val_loss=0.000171
+Epoch 032 | train_loss=0.000756 | val_loss=0.000739
+Epoch 033 | train_loss=0.000719 | val_loss=0.000193
+Epoch 034 | train_loss=0.000383 | val_loss=0.000478
+Epoch 035 | train_loss=0.000627 | val_loss=0.000517
+Epoch 036 | train_loss=0.000400 | val_loss=0.000127
+Epoch 037 | train_loss=0.000277 | val_loss=0.000223
+Epoch 038 | train_loss=0.000270 | val_loss=0.000265
+Epoch 039 | train_loss=0.000410 | val_loss=0.000197
+Epoch 040 | train_loss=0.000369 | val_loss=0.000232
+Epoch 041 | train_loss=0.000669 | val_loss=0.000129
+Epoch 042 | train_loss=0.000422 | val_loss=0.000405
+Epoch 043 | train_loss=0.000333 | val_loss=0.000077
+Epoch 044 | train_loss=0.000322 | val_loss=0.000116
+Epoch 045 | train_loss=0.000279 | val_loss=0.000202
+Epoch 046 | train_loss=0.000373 | val_loss=0.000097
+Epoch 047 | train_loss=0.000312 | val_loss=0.000163
+Epoch 048 | train_loss=0.000679 | val_loss=0.000172
+Epoch 049 | train_loss=0.000310 | val_loss=0.000278
+Epoch 050 | train_loss=0.000345 | val_loss=0.000219
+Epoch 051 | train_loss=0.000259 | val_loss=0.000076
+Epoch 052 | train_loss=0.000244 | val_loss=0.000158
+Epoch 053 | train_loss=0.000187 | val_loss=0.000179
+Epoch 054 | train_loss=0.000270 | val_loss=0.000125
+Epoch 055 | train_loss=0.000196 | val_loss=0.000120
+Epoch 056 | train_loss=0.000451 | val_loss=0.000211
+Epoch 057 | train_loss=0.000273 | val_loss=0.000088
+Epoch 058 | train_loss=0.000143 | val_loss=0.000325
+Epoch 059 | train_loss=0.000452 | val_loss=0.000178
+Epoch 060 | train_loss=0.000193 | val_loss=0.000074
+Epoch 061 | train_loss=0.000139 | val_loss=0.000067
+Epoch 062 | train_loss=0.000329 | val_loss=0.000280
+Epoch 063 | train_loss=0.000162 | val_loss=0.000098
+Epoch 064 | train_loss=0.000137 | val_loss=0.000055
+Epoch 065 | train_loss=0.000112 | val_loss=0.000053
+Epoch 066 | train_loss=0.000110 | val_loss=0.000091
+Epoch 067 | train_loss=0.000138 | val_loss=0.000199
+Epoch 068 | train_loss=0.000101 | val_loss=0.000040
+Epoch 069 | train_loss=0.000162 | val_loss=0.000090
+Epoch 070 | train_loss=0.000228 | val_loss=0.000126
+Epoch 071 | train_loss=0.000150 | val_loss=0.000170
+Epoch 072 | train_loss=0.000112 | val_loss=0.000174
+Epoch 073 | train_loss=0.000145 | val_loss=0.000067
+Epoch 074 | train_loss=0.000110 | val_loss=0.000090
+Epoch 075 | train_loss=0.000113 | val_loss=0.000094
+Epoch 076 | train_loss=0.000079 | val_loss=0.000047
+Epoch 077 | train_loss=0.000106 | val_loss=0.000053
+Epoch 078 | train_loss=0.000086 | val_loss=0.000061
+Epoch 079 | train_loss=0.000160 | val_loss=0.000039
+Epoch 080 | train_loss=0.000096 | val_loss=0.000050
+Epoch 081 | train_loss=0.000100 | val_loss=0.000054
+Epoch 082 | train_loss=0.000075 | val_loss=0.000027
+Epoch 083 | train_loss=0.000103 | val_loss=0.000090
+Epoch 084 | train_loss=0.000125 | val_loss=0.000064
+Epoch 085 | train_loss=0.000089 | val_loss=0.000071
+Epoch 086 | train_loss=0.000228 | val_loss=0.000253
+Epoch 087 | train_loss=0.000124 | val_loss=0.000045
+Epoch 088 | train_loss=0.000103 | val_loss=0.000045
+Epoch 089 | train_loss=0.000080 | val_loss=0.000083
+Epoch 090 | train_loss=0.000062 | val_loss=0.000037
+Epoch 091 | train_loss=0.000087 | val_loss=0.000045
+Epoch 092 | train_loss=0.000073 | val_loss=0.000041
+Epoch 093 | train_loss=0.000095 | val_loss=0.000039
+Epoch 094 | train_loss=0.000070 | val_loss=0.000038
+Epoch 095 | train_loss=0.000060 | val_loss=0.000096
+Epoch 096 | train_loss=0.000080 | val_loss=0.000042
+Epoch 097 | train_loss=0.000093 | val_loss=0.000095
+Epoch 098 | train_loss=0.000080 | val_loss=0.000036
+Epoch 099 | train_loss=0.000078 | val_loss=0.000026
+Epoch 100 | train_loss=0.000064 | val_loss=0.000031
+
+===== Results =====
+Train MAE:  0.005230
+Test  MAE:  0.005679
+Train RMSE: 0.007230
+Test  RMSE: 0.008397
+Test  MAPE: 2.54%
+Test  directional accuracy: 99.82%
+
+===== Price Forecast =====
+Data through:         2026-04-16
+Last available close: 48578.72
+Predicted log return: 0.001205
+Forecasted price:     48637.28
+TDA features [entropy, amplitude, point_count]: [ 2.80932056  0.04929911 17.        ]
+
+===== Options Chain: SPY | Target $48637.28 ±2% [$47664.53 – $49610.02] =====
+Expiration: 2026-04-17  (0 DTE)
+
+No strikes found between $47664.53 and $49610.02.
+
+Saved to history.json: {'date': '2026-04-16', 'last_close': 48578.7188, 'forecasted_close': 48637.277, 'atm_call_cost': None}

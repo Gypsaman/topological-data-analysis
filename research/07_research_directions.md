@@ -209,10 +209,21 @@ The connection between discrete Morse theory and persistent homology is well-est
 | 5 | Extended persistence and Reeb graphs on surfaces | Morse theory / Surface topology | Low | None | Medium | You prefer pure topology |
 | 6 | Concentration inequalities for random complexes | Probability / Combinatorics | Very low | None | Medium | You have strong probability background |
 | 7 | Discrete Morse sub-optimality and persistence | Discrete Morse theory / Algorithms | Low | None | Medium | You enjoy algorithmic topology |
+| 8 | Topological memory in financial markets | Stochastic processes / PH of time series | Low | Free financial data | Low | You want a concrete financial application |
+| 9 | **Concentration for dependent complexes + topological Hurst estimator** | Probability / fBm / PH theory | Low | Free financial + synthetic | **Very Low** | **Top recommendation — unified theory + application** |
+| 10 | Persistent path homology for directed financial networks | Algebraic topology / Network science | Low | Free financial data | Low | You want directed-network TDA with a clear theory gap |
 
 ---
 
 ## Recommended Starting Point
+
+**Top recommendation (2026-03-20 update):**
+
+**Direction 9** is the leading candidate. It unifies Directions 6 and 8, speaks to three research communities (stochastic topology, statistical TDA, mathematical finance), and fills a gap explicitly acknowledged in Dey & Wang (2022) — the most comprehensive TDA reference available. The concentration inequality for dependent complexes is the first of its kind; the topological Hurst estimator is the first TDA-based estimator with provable statistical guarantees. See [09_research_direction_unified.md](09_research_direction_unified.md).
+
+**Secondary recommendation:**
+
+**Direction 10** (persistent path homology for directed networks) is a lower-barrier companion track. It requires no stochastic processes, uses foundations from Dey & Wang Ch 8, and targets a clear open problem (stability of persistent path homology). It can proceed in parallel or as a follow-up. See [10_research_direction_path_homology.md](10_research_direction_path_homology.md).
 
 **For a team with strong pure math backgrounds and minimal compute:**
 
@@ -224,4 +235,4 @@ The connection between discrete Morse theory and persistent homology is well-est
 
 ---
 
-*Document created: 2026-03-18. Based on literature survey in `01_foundations.md` through `06_bibliography.md`.*
+*Document created: 2026-03-18. Updated 2026-03-20: Added Directions 8–10 to comparison table; updated recommendations after Dey & Wang (CTDA, 2022) review.*

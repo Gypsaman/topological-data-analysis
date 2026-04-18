@@ -11,7 +11,7 @@ This file provides context for AI-assisted research sessions on Topological Data
 2. Explore research ideas and application directions
 3. Develop and write a research paper
 
-**Current stage:** Foundation complete. Literature survey complete (76 references). Nine candidate research directions documented. Direction 9 (unified concentration + financial memory) is the leading candidate — synthesizes Directions 6 and 8 into a single paper with rigorous statistical theory and concrete application.
+**Current stage:** **Writing in progress.** Direction 9 selected. Paper draft started in `research/paper/`. Abstract and Introduction (Section 1) complete. Sections 2–7 are stubs awaiting drafting. Build system: pandoc + xelatex via `research/paper/Makefile`.
 
 ---
 
@@ -28,9 +28,14 @@ topological_data_analysis/
     ├── 04_applications.md            ← Applications (biology, physics, ML, etc.)
     ├── 05_research_frontiers.md      ← Open problems and research opportunities
     ├── 06_bibliography.md            ← 76-entry annotated bibliography
-    ├── 07_research_directions.md     ← 7 candidate research topics (low-resource, math-focused)
+    ├── 07_research_directions.md     ← 10 candidate research topics (low-resource, math-focused)
     ├── 08_research_direction_financial_memory.md  ← Direction 8: topological Hurst estimator
-    └── 09_research_direction_unified.md           ← Direction 9: unified theory (6 + 8), leading candidate
+    ├── 09_research_direction_unified.md           ← Direction 9: unified theory (6 + 8), leading candidate
+    ├── 10_research_direction_path_homology.md     ← Direction 10: persistent path homology for directed financial networks
+    └── paper/                                     ← Active paper draft (Direction 9)
+        ├── paper.md                               ← Main source (pandoc markdown + LaTeX math)
+        ├── references.bib                         ← BibTeX file (17 entries)
+        └── Makefile                               ← Build: `make` → paper.pdf
 ```
 
 ---
@@ -49,6 +54,7 @@ topological_data_analysis/
 - Mapper algorithm: construction, parameter selection, nerve theorem connection, applications
 - Applications: cancer genomics (Nicolau 2011), neuroscience (Giusti 2015), protein structure (Wei group), materials (Hiraoka 2016), cosmology (Cole 2021), finance (Gidea 2018), ML/DL (topology layers, topological autoencoders, GNNs), time series
 - Research frontiers: differentiable PH, topological DL, statistical TDA, TDA for LLMs, quantum TDA, drug discovery, sheaf theory, magnitude homology
+- Dey & Wang (2022) review: optimal homology generators (Ch 5), Reeb graph distances and universality question (Ch 7), path homology for directed graphs (Ch 8), statistical treatment gap confirmed (Ch 13.3)
 
 ---
 
@@ -119,8 +125,11 @@ Seven candidate directions are fully documented in [`research/07_research_direct
 | 7 | Discrete Morse sub-optimality and persistence | Discrete Morse theory | Laptop |
 | 8 | Topological memory in financial markets | Stochastic processes, PH of time series | Laptop |
 | 9 | **Concentration for dependent complexes + topological Hurst estimator** | Probability, fBm, PH theory | Laptop |
+| 10 | Persistent path homology for directed financial networks | Algebraic topology, network science | Laptop |
 
 **Top recommendation: Direction 9** — unifies Directions 6 and 8. The concentration bound for dependent point clouds is the first of its kind; the topological Hurst estimator is the first TDA estimator for long-memory processes with provable statistical guarantees. Three audiences: stochastic topology, statistical TDA, mathematical finance.
+
+**Secondary recommendation: Direction 10** — stability of persistent path homology (open problem) + application to directed financial networks. Lower barrier, distinct audience. Can run in parallel with Direction 9.
 
 ---
 
@@ -135,4 +144,4 @@ Seven candidate directions are fully documented in [`research/07_research_direct
 
 ---
 
-*Last updated: 2026-03-18 — Added 07_research_directions.md*
+*Last updated: 2026-03-20 — Added Direction 10, Dey & Wang gap analysis, updated all tables*
